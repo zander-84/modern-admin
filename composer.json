@@ -1,0 +1,26 @@
+{
+    "name": "zander-84/modern-admin",
+    "description": "Yii 2 Dashboard",
+    "keywords": ["yii2", "framework", "dashboard"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "support": {
+        "issues": "https://github.com/zander-84/modern-admin/issues",
+        "source": "https://github.com/zander-84/modern-admin"
+    },
+    "authors": [{
+        "name": "zander",
+        "email":"676993761@qq.com"
+    }],
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*"
+    },
+
+    "autoload": {
+        "psr-4":{
+            "zander84\\modernadmin\\": "src/"
+        }
+    }
+}
