@@ -24,6 +24,6 @@ class Assert
 {
    public static function a()
    {
-       echo 124; 
+       echo 1248;
    }
 }
