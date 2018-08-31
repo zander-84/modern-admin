@@ -1,15 +1,17 @@
 body.vertical-layout.vertical-menu-modern.menu-expanded .main-menu{
-    width: 220px;
+    width: 200px;
 }
 
 body.vertical-layout.vertical-menu-modern.menu-expanded .navbar .navbar-header{
-    width: 220px;
+    width: 200px;
 }
 
 body.vertical-layout.vertical-menu-modern.menu-expanded .content, body.vertical-layout.vertical-menu-modern.menu-expanded .footer{
-    margin-left: 220px;
+    margin-left: 200px;
 }
-
+.samllform .card-body{
+    padding: 1.0rem !important;
+}
 div.required > label:before {
     content: " * ";
     color: #FF586B;

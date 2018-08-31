@@ -72,8 +72,24 @@ class ModernActiveFormField extends  ActiveField
 
         $this->addAriaAttributes($options);
         $this->adjustLabelFor($options);
-        $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" ><i class="'.$icon.'"></i></span></div>'.
+        $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" style="width: 50px;height: 40px"><i class="'.$icon.'"></i></span></div>'.
             Html::activeTextInput($this->model, $this->attribute, $options).'</div>';
+
+        return $this;
+    }
+
+    public function iconPasswdInput($options,$icon)
+    {
+        $options = array_merge($this->inputOptions, $options);
+
+        if ($this->form->validationStateOn === ModernActiveForm::VALIDATION_STATE_ON_INPUT) {
+            $this->addErrorClassIfNeeded($options);
+        }
+
+        $this->addAriaAttributes($options);
+        $this->adjustLabelFor($options);
+        $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" style="width: 50px;height: 40px"><i class="'.$icon.'"></i></span></div>'.
+            Html::activePasswordInput($this->model, $this->attribute, $options).'</div>';
 
         return $this;
     }

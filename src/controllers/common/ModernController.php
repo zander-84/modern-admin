@@ -15,12 +15,12 @@ class ModernController extends Controller
      *
      * @return string
      */
-    public function actionIndex($id='index')
-    {
-
-        $this->layout = '@modern-layouts/main';
-        return $this->render('@modern-sites/' . $id);
-    }
+    //public function actionIndex($id='index')
+    //{
+    //
+    //    $this->layout = '@modern-layouts/main';
+    //    return $this->render('@modern-sites/' . $id);
+    //}
 
 
 
@@ -38,5 +38,5 @@ class ModernController extends Controller
             $session->setFlash('error',$message);
         }
     }
-    
+
 }

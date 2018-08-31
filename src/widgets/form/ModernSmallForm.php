@@ -51,7 +51,7 @@ class ModernSmallForm extends ModernActiveForm
         return Html::hiddenInput($key, $behavior);
     }
 
-
+    
 
     public function fieldHidden($name, $val=false)
     {

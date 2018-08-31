@@ -18,6 +18,13 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
         return $this->field($model, $attribute, $fieldOptions)->iconInput($textInputOptions,$icon)->label(false);
     }
 
+    public function fieldIconPasswordInput($model, $attribute,$width=12, $icon='', $fieldOptions = [], $textInputOptions = [] )
+    {
+        $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
+        return $this->field($model, $attribute, $fieldOptions)->iconPasswdInput($textInputOptions,$icon)->label(false);
+    }
+
+
     public function fieldPrependInput($model, $attribute,$width=12,$lable = null, $fieldOptions = [], $textInputOptions = [] )
     {
         $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
