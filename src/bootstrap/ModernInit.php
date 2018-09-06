@@ -27,6 +27,7 @@ class ModernInit implements BootstrapInterface{
         //____ alias
         Yii::setAlias('@modern-layouts', '@vendor/zander-84/modern-admin/src/views/layouts');
         Yii::setAlias('@modern-sites', '@vendor/zander-84/modern-admin/src/views/sites');
+        Yii::setAlias('@modern-views', '@vendor/zander-84/modern-admin/src/views');
         Yii::setAlias('@modern-demo', '@vendor/zander-84/modern-admin/src/views/demo');
         Yii::setAlias('@modern-assets', '@vendor/zander-84/modern-admin/src/views/assets');
 

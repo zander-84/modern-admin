@@ -23,7 +23,11 @@ class ModernController extends Controller
     //}
 
 
-
+    public function renderMyAjax ($view, $params = [])
+    {
+         $data = parent::renderAjax($view, $params);
+         return   preg_replace("/\<script.*jquery\.js\"\>\<\/script\>/",'',$data);
+    }
 
 
     public function setflash($boolean, $message = null)

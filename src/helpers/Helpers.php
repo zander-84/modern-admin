@@ -31,5 +31,17 @@ class Helpers
             return '';
         }
     }
+
+    public static function selectAll($item)
+    {
+        return [null=>'---- All ----']+$item;
+    }
+
+    public static function pleaseSelect($item)
+    {
+        return [null=>'---- Select ----']+$item;
+    }
+
+
     
 }

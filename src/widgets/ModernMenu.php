@@ -29,7 +29,8 @@ class ModernMenu extends Widget
 
             if(isset($item['url']) && $item['url']){
                 $href =  Url::to($item['url']);
-                $is_active = $this->isActive($item['url']);
+                $breadcrumbs = isset($item['breadcrumbs']) ? $item['breadcrumbs']:[];
+                $is_active = $this->isActive($item['url'], $breadcrumbs);
 
             }else{
                 $href = '#';
@@ -82,9 +83,10 @@ class ModernMenu extends Widget
     }
 
 
-    protected function isActive($item)
+    protected function isActive($item, $breadcrumbs)
     {
         $route = Yii::$app->controller->getRoute();
+
         if($route == $this->dashboard_url ){
             if(isset($item['id']) && Yii::$app->request->get('id') == $item['id']){
                 return true;
@@ -94,7 +96,10 @@ class ModernMenu extends Widget
         }else{
             if(isset($item[0]) && trim($item[0],'/') == $route){
                 return true;
-            }else{
+            }elseif (in_array('/'.trim($route,'/'), $breadcrumbs)){
+                return true;
+            }
+            else{
                 return false;
             }
         }

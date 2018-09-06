@@ -22,7 +22,13 @@ class ModernBreadcrumbs extends Widget
 
         foreach ($this->pageList as $item){
             $active = isset($item['active']) && $item['active'] ? 'active' : '';
-            $html .= '<li class="breadcrumb-item '.$active.' "><a href="'.Url::to($item['url']).'">'.$item['name'].'</a>';
+            $data_pjax = isset($item['data-pjax']) && !$item['data-pjax'] ? 'data-pjax=0' : '';
+            if($active){
+
+                $html .= '<li class="breadcrumb-item '.$active.' ">'.$item['name'].'</a>';
+            }else{
+                $html .= '<li class="breadcrumb-item "><a '.$data_pjax.' href="'.Url::to($item['url']).'">'.$item['name'].'</a>';
+            }
         }
 
         $html .=                    '</ol>';

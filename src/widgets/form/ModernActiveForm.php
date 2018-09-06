@@ -40,7 +40,7 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
 
     public function fieldHiddenInput($model, $attribute )
     {
-        return $this->field($model, $attribute)->hiddenInput();;
+        return $this->field($model, $attribute)->hiddenInput()->label(false);
     }
 
     public function fieldPasswordInput($model, $attribute,$width=12, $lable = null, $fieldOptions = [], $textInputOptions = [],$lableOptions = [] )
@@ -55,10 +55,22 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
         return $this->field($model,$attribute,$fieldOptions)->dropDownList($items,$dropDownListOptions)->label($label);
     }
 
+    public function fieldPrependDropDownList($model, $attribute, $items=[],$width=12, $label=null, $fieldOptions = [], $dropDownListOptions = [])
+    {
+        $dropDownListOptions['style']['border-radius'] = '0px';
+            $dropDownListOptions['style']['-webkit-border-radius'] = 0;
+            $dropDownListOptions['style']['-moz-border-radius'] = 0;
+            $dropDownListOptions['style']['-khtml-border-radius'] = 0;
+            $dropDownListOptions['style']['-webkit-appearance'] = 'none';
+        //$dropDownListOptions['style']['border-bottom-left-radius'] = '0px';
+        $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
+        return $this->field($model,$attribute,$fieldOptions)->prependDropDownList($items,$dropDownListOptions,$label)->label(false);
+    }
+
     public function fieldTextarea($model, $attribute,$width=12, $label=null ,  $fieldOptions = [], $textareaOptions = ['rows' => 6])
     {
         $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
-        return  $this->field($model, $attribute, $fieldOptions)->textarea($textareaOptions);
+        return  $this->field($model, $attribute, $fieldOptions)->textarea($textareaOptions)->label($label);
     }
 
 
@@ -121,12 +133,15 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
         return $this->field($model,$attribute,$fieldOptions)->checkbox($checkboxOptions)->label($label);
     }
 
-    public function fieldSwitch($model, $attribute, $width=12, $label = null,  $fieldOptions = [], $checkboxOptions = [])
+    public function fieldSwitch($model, $attribute, $width=12, $label = null, $ckLable=[], $fieldOptions = [], $checkboxOptions = [])
     {
         $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
         $checkboxOptions['class'] = 'switch';
+        $checkboxOptions['id'] = 'switch_'.uniqid();
         $checkboxOptions['data-group-cls'] = 'btn-group-sm';
-        $this->view->registerJs('!function(c,e,s){"use strict";s("html");s(".switch:checkbox").checkboxpicker(),s(".switchBootstrap").bootstrapSwitch(),s("#switch12").checkboxpicker({html:!0,offLabel:\'<span class="icon-remove">\',onLabel:\'<span class="icon-ok">\'});var t=0;if(Array.prototype.forEach){var r=s(".switchery");s.each(r,function(c,e){var t,r,a="",o="";t=s(this).data("size");a=void 0!==s(this).data("size")?"switchery switchery-"+{lg:"large",sm:"small",xs:"xsmall"}[t]:"switchery";o=void 0!==(r=s(this).data("color"))?{primary:"#967ADC",success:"#37BC9B",danger:"#DA4453",warning:"#F6BB42",info:"#3BAFDA"}[r]:"#37BC9B";new Switchery(s(this)[0],{className:a,color:o})})}else{var a=e.querySelectorAll(".switchery");for(t=0;t<a.length;t++)a[t].data("size"),a[t].data("color"),new Switchery(a[t],{color:"#37BC9B"})}}(window,document,jQuery);');
+        isset($ckLable['offLabel']) || $ckLable['offLabel'] = 'No';
+        isset($ckLable['onLabel']) || $ckLable['onLabel'] = 'Yes';
+        $this->view->registerJs('!function(c,e,s){"use strict";s("html");s("#'.$checkboxOptions['id'].':checkbox").checkboxpicker({offLabel:"'.$ckLable['offLabel'].'", onLabel:"'.$ckLable['onLabel'].'"})}(window,document,jQuery);');
         return $this->field($model,$attribute,$fieldOptions)->checkbox($checkboxOptions,false)->label($label);
     }
 
@@ -334,10 +349,10 @@ js;
         $html .= ModernLayout::beginTag([
             ['button',['class'=>'btn btn-success  ','type'=>"submit",'style'=>[ 'width'=>'100%']]],
         ]);
-        $html .= ModernLayout::beginTag([
-            ['i',['class'=>'la la-search','style'=>['margin-right'=>'5px']]],
-        ]);
-        $html .= ModernLayout::endTag(['i']);
+        //$html .= ModernLayout::beginTag([
+        //    ['i',['class'=>'la la-search','style'=>['margin-right'=>'5px']]],
+        //]);
+        //$html .= ModernLayout::endTag(['i']);
         $html .= $val;
 
         $html .= ModernLayout::endTag(['button','div']);

@@ -9,7 +9,7 @@ class ModernCard
 {
 
 
-    public static function beginRow($options = ['class'=>'row match-height'])
+    public static function beginRow($options = ['class'=>'row match-heights'])
     {
        return ModernLayout::beginTag([['div',$options]]);
     }

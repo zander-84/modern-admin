@@ -3,6 +3,7 @@ namespace zander84\modernadmin\widgets\form;
 
 
 use yii\helpers\Json;
+use yii\widgets\ActiveFormAsset;
 
 class ModernModalForm extends ModernSmallForm
 {
@@ -24,7 +25,7 @@ class ModernModalForm extends ModernSmallForm
         $options = Json::htmlEncode($this->getClientOptions());
         $attributes = Json::htmlEncode($this->attributes);
         $view = $this->getView();
-        //ActiveFormAsset::register($view);
+        ActiveFormAsset::register($view);
         $view->registerJs("jQuery('#$id').yiiActiveForm($attributes, $options);");
     }
 

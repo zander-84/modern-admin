@@ -72,7 +72,7 @@ class ModernActiveFormField extends  ActiveField
 
         $this->addAriaAttributes($options);
         $this->adjustLabelFor($options);
-        $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" style="width: 50px;height: 40px"><i class="'.$icon.'"></i></span></div>'.
+        $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" style="width: 50px;"><i class="'.$icon.'"></i></span></div>'.
             Html::activeTextInput($this->model, $this->attribute, $options).'</div>';
 
         return $this;
@@ -88,7 +88,7 @@ class ModernActiveFormField extends  ActiveField
 
         $this->addAriaAttributes($options);
         $this->adjustLabelFor($options);
-        $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" style="width: 50px;height: 40px"><i class="'.$icon.'"></i></span></div>'.
+        $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" style="width: 50px;"><i class="'.$icon.'"></i></span></div>'.
             Html::activePasswordInput($this->model, $this->attribute, $options).'</div>';
 
         return $this;
@@ -101,7 +101,7 @@ class ModernActiveFormField extends  ActiveField
         if ($this->form->validationStateOn === ModernActiveForm::VALIDATION_STATE_ON_INPUT) {
             $this->addErrorClassIfNeeded($options);
         }
-        $lable = $lable? $lable: $this->attribute;
+        $lable = $lable? $lable: $this->model->getAttributeLabel($this->attribute);
         
         $this->addAriaAttributes($options);
         $this->adjustLabelFor($options);
@@ -110,5 +110,22 @@ class ModernActiveFormField extends  ActiveField
 
         return $this;
     }
+
+    public function prependDropDownList($items,$options, $lable)
+    {
+        $options = array_merge($this->inputOptions, $options);
+
+        if ($this->form->validationStateOn === ModernActiveForm::VALIDATION_STATE_ON_INPUT) {
+            $this->addErrorClassIfNeeded($options);
+        }
+        $lable = $lable? $lable: $this->attribute;
+        $this->addAriaAttributes($options);
+        $this->adjustLabelFor($options);
+        $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" >'.$lable.'</span></div>'.
+            Html::activeDropDownList($this->model, $this->attribute, $items, $options).'</div>';
+
+        return $this;
+    }
+
 
 }
