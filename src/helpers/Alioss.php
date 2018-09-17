@@ -71,7 +71,6 @@ class Alioss
 
         try{
             $ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
-            echo $this->dir.'/'.basename($filename);
             $ossClient->deleteObject($bucket, $this->dir.'/'.basename($filename));
             return true;
         }catch (\Exception $e){
