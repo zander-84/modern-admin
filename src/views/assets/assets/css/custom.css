@@ -1,13 +1,13 @@
 body.vertical-layout.vertical-menu-modern.menu-expanded .main-menu{
-    width: 220px;
+    width: 180px;
 }
 
 body.vertical-layout.vertical-menu-modern.menu-expanded .navbar .navbar-header{
-    width: 220px;
+    width: 180px;
 }
 
 body.vertical-layout.vertical-menu-modern.menu-expanded .content, body.vertical-layout.vertical-menu-modern.menu-expanded .footer{
-    margin-left: 220px;
+    margin-left: 180px;
 }
 .samllform .card-body{
     padding: 1.0rem !important;
@@ -52,6 +52,25 @@ div.required > label:before {
 .cust-a-link{
     color: #6B6F82;
 }
-/*.form-control{*/
-    /*font-size:.875rem;*/
-/*}*/
+.form-control,.input-group .input-group-text,.input-group .input-group-prepend .input-group-text{
+    padding: 0.5rem 0.5rem;
+}
+
+.main-menu.menu-light .navigation>li>a {
+    padding: 10px 20px 10px 12px;
+}
+
+.navigation{
+    font-size: 1.0rem;
+}
+
+body{
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.0;
+}
+select.form-control:not([size]):not([multiple]){
+    height:-webkit-calc(2.4rem + 0px);
+    height:-moz-calc(2.4rem + 0px);
+    height:calc(2.4rem + 0px);
+}

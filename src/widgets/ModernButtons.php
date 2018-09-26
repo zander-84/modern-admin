@@ -95,7 +95,7 @@ class ModernButtons
         $model['data-vals']['_csrf'] = $request->csrfToken;
         $model['data-vals'][$request->action_key] = $model['data-action'];
 
-        $options = ['class'=>' btn-group ','role'=>'group','style'=>['height'=>'40px', 'width'=>'100%']];
+        $options = ['class'=>' btn-group ','role'=>'group','style'=>['height'=>'33px', 'width'=>'100%']];
         if(isset($params['class'])){
             $options['class'] = $options['class'].$params['class'];
             unset($params['class']);
@@ -112,7 +112,7 @@ class ModernButtons
         $html .= ModernLayout::endTag(['span']);
         $html .= ModernLayout::beginTag([['div', $options]]);
         $html .= ModernLayout::beginTag([
-            ['button',['class'=>'btn '.$color.' ','type'=>'button','style'=>[ 'width'=>'100%']]],
+            ['button',['class'=>'btn '.$color.' ','type'=>'button','style'=>[ 'width'=>'100%','padding-top'=>'7px']]],
         ]);
 
         $html .= $val;
@@ -131,7 +131,7 @@ class ModernButtons
         $params['data-vals']['_csrf'] = $request->csrfToken;
         $params['data-vals'][$request->action_key] = $params['data-action'];
 
-        $options = ['class'=>' btn-group ','type'=>'button','data-toggle'=>"modal",'role'=>'group','style'=>['height'=>'40px', 'width'=>'100%']];
+        $options = ['class'=>' btn-group ','type'=>'button','data-toggle'=>"modal",'role'=>'group','style'=>['height'=>'33px', 'width'=>'100%']];
         if(isset($params['class'])){
             $options['class'] = $options['class'].$params['class'];
             unset($params['class']);
@@ -142,7 +142,7 @@ class ModernButtons
         $html .= ModernCard::beginColumn($col, 'cust_field');
         $html .= ModernLayout::beginTag([['div', $options]]);
         $html .= ModernLayout::beginTag([
-            ['button',['class'=>'btn '.$color.' ','type'=>'button','style'=>[ 'width'=>'100%']]],
+            ['button',['class'=>'btn '.$color.' ','type'=>'button','style'=>[ 'width'=>'100%','padding-top'=>'7px']]],
         ]);
 
         $html .= $val;

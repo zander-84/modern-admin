@@ -345,9 +345,9 @@ js;
     {
         $html = '';
         $html .= ModernCard::beginColumn($col,'cust_field');
-        $html .= ModernLayout::beginTag([['div',['class'=>'btn-group', 'role'=>'group','style'=>['height'=>'40px', 'width'=>'100%']]]]);
+        $html .= ModernLayout::beginTag([['div',['class'=>'btn-group', 'role'=>'group','style'=>['height'=>'33px', 'width'=>'100%']]]]);
         $html .= ModernLayout::beginTag([
-            ['button',['class'=>'btn btn-success  ','type'=>"submit",'style'=>[ 'width'=>'100%']]],
+            ['button',['class'=>'btn btn-success  ','type'=>"submit",'style'=>[ 'width'=>'100%','padding-top'=>'7px']]],
         ]);
         //$html .= ModernLayout::beginTag([
         //    ['i',['class'=>'la la-search','style'=>['margin-right'=>'5px']]],
