@@ -57,9 +57,9 @@ class ModernModal extends Widget
                                  type: "post",
                                  data: postdata,
                                  success: function (data) {
-                                      layer.closeAll("loading");
-                                    $(".modal-dialog").css('display', 'block');
-                                    $("#$this->id").find('.modal-body').html(data);
+                                     layer.closeAll("loading");
+                                     $(".modal-dialog").css('display', 'block');
+                                     $("#$this->id").find('.modal-body').html(data);
                                  },
                                  error: function () {
                 
