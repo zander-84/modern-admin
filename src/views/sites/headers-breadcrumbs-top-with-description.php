@@ -7,8 +7,7 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
     ]
 ]);
 ?>
-<div class="app-content content">
-<div class="content-wrapper">
+
 <div class="content-header row">
 <div class="breadcrumb-wrapper col-12">
 <ol class="breadcrumb">
@@ -205,6 +204,4 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 </div>
 </section>
 <!--/ PUG Code -->
-</div>
-</div>
 </div>

@@ -7,8 +7,7 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
     ]
 ]);
 ?>
-<div class="app-content content">
-<div class="content-wrapper">
+
 <div class="content-header row">
 <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
 <h3 class="content-header-title mb-0 d-inline-block">Collapsible Navigation</h3>
@@ -278,6 +277,4 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 </div>
 </section>
 <!--/ PUG Code -->
-</div>
-</div>
 </div>

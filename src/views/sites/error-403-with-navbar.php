@@ -7,8 +7,7 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
     ]
 ]);
 ?>
-<div class="app-content content">
-<div class="content-wrapper">
+
 <div class="content-header row">
 </div>
 <div class="content-body">
@@ -49,8 +48,6 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 <a class="btn btn-social-icon mr-1 mb-1 btn-outline-github" href="error-403-with-navbar.html#">
 <span class="la la-github font-medium-4"></span>
 </a>
-</div>
-</div>
 </div>
 </div>
 </div>

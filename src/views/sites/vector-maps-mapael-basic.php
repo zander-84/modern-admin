@@ -7,8 +7,7 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
     ]
 ]);
 ?>
-<div class="app-content content">
-<div class="content-wrapper">
+
 <div class="content-header row">
 <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
 <h3 class="content-header-title mb-0 d-inline-block">Mapael Basic Vector Maps</h3>
@@ -201,6 +200,4 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 </div>
 </section>
 <!-- // jQuery mapael basic maps section end -->
-</div>
-</div>
 </div>

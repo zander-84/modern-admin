@@ -22,11 +22,7 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 <?php \zander84\modernadmin\widgets\ModernFlush::widget(); ?>
 
 
-<?= ModernLayout::beginTag([
-        ['div',['class'=>'app-content content']],
-        ['div',['class'=>'content-wrapper']],
-]);
-?>
+
 
         <?=\zander84\modernadmin\widgets\ModernBreadcrumbs::widget([
             'currentPage' => 'Basic Forms'   ,
@@ -56,7 +52,6 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 
 
     <?= ModernLayout::endTag(['section', 'div'])?>
-<?= ModernLayout::endTag(['div', 'div'])?>
 
 
 <?php ModernPjax::end() ?>

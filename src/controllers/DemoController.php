@@ -61,13 +61,13 @@ class DemoController extends ModernController
             $del_form = new DemoForm();
             $del_form->ids = $request->post('ids');
             $request->setActionModal();
-            return $this->renderMyAjax('@modern-demo/test/deletes',['del_form'=>$del_form]);
+            return $this->renderAjax('@modern-demo/test/deletes',['del_form'=>$del_form]);
         }elseif ($request->isModal){
             $del_form = new DemoForm();
             if($del_form->load(Yii::$app->request->post()) && $del_form->validate()){
                  Animation::modalSwalWithPjax('pjax','success');
             }
-            return $this->renderMyAjax('@modern-demo/test/deletes',['del_form'=>$del_form]);
+            return $this->renderAjax('@modern-demo/test/deletes',['del_form'=>$del_form]);
         }
 
         $dataProvider = new ModernActiveDataProvider($query);

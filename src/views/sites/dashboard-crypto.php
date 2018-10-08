@@ -7,8 +7,7 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
     ]
 ]);
 ?>
-<div class="app-content content">
-<div class="content-wrapper">
+
 <div class="content-header row">
 </div>
 <div class="content-body">
@@ -920,6 +919,4 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 </div>
 </div>
 <!-- Active Orders -->
-</div>
-</div>
 </div>

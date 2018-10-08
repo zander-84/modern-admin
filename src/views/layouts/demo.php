@@ -176,7 +176,15 @@ $modern_dashboard = Yii::$app->params['modern_dashboard'];
             </div>
         </div>
     <?php endif; ?>
-    <?= $content ?>
+
+
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <?= $content ?>
+        </div>
+    </div>
+
+    
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     <?php if(!isset($this->blocks['is_full_page'])): ?>
         <footer class="footer footer-static footer-light navbar-border navbar-shadow">

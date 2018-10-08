@@ -7,7 +7,6 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
     ]
 ]);
 ?>
-<div class="app-content content">
 <div class="sidebar-left">
 <div class="sidebar">
 <div class="sidebar-content email-app-sidebar d-flex">
@@ -410,7 +409,6 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 </div>
 </div>
 <div class="email-app-text-action card-body">
-</div>
 </div>
 </div>
 </div>

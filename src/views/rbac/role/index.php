@@ -30,11 +30,7 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 <?php \zander84\modernadmin\widgets\ModernFlush::widget(); ?>
 
 
-<?= ModernLayout::beginTag([
-    ['div',['class'=>'app-content content']],
-    ['div',['class'=>'content-wrapper']],
-]);
-?>
+
 
 <?=\zander84\modernadmin\widgets\ModernBreadcrumbs::widget([
     'currentPage' => '角色列表',
@@ -63,7 +59,6 @@ $baseUrl = \zander84\modernadmin\widgets\ModernRegisterAsset::widget([
 
 <?=ModernCard::endRow()?>
 <?= ModernLayout::endTag(['section', 'div'])?>
-<?= ModernLayout::endTag(['div', 'div'])?>
 
 
 <?php ModernPjax::end() ?>

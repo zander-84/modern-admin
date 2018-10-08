@@ -11,6 +11,7 @@ class ModernMenu extends Widget
 
     public $items;
     public $dashboard_url = 'modern/index';
+    public $is_multitabs = false;
 
     public function run ()
     {
@@ -47,16 +48,26 @@ class ModernMenu extends Widget
                 );
             }
             else{
+
+                if($this->is_multitabs){
+                    $counts_options = ['class' => 'multitabs', 'href' => $href, 'data-type' => "info", 'data-iframe'=>"true"];
+                    $counts_1_options = ['class' => 'menu-item multitabs', 'href' => $href, 'data-type' => "info", "data-iframe" => "true"];
+                }else{
+                    $counts_1_options = ['class' => 'menu-item', 'href' => $href];
+                    $counts_options = ['href' => $href];
+                }
+
+
                 if($counts == 1) {
                     $html .= Html::tag(
                         'li',
-                        Html::tag('a', $label, ['class' => 'menu-item', 'href' => $href]),
+                        Html::tag('a', $label, $counts_1_options),
                         $active_options
                     );
                 }else{
                     $html .= Html::tag(
                         'li',
-                        Html::tag('a', $this->renderIcon($icon).$this->renderLable($label, ['class'=>'menu-title']), ['href' => $href]),
+                        Html::tag('a', $this->renderIcon($icon).$this->renderLable($label, ['class'=>'menu-title']), $counts_options),
                         array_merge(['class' => "nav-item"], $active_options)
                     );
                 }

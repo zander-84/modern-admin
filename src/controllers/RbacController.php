@@ -70,7 +70,7 @@ class RbacController extends ModernController
             $del_form->scenario = 'delRules';
             $del_form->ids = $request->post('ids');
             $request->setActionModal();
-            return $this->renderMyAjax('@modern-views/rbac/rule/deletes',['del_form'=>$del_form]);
+            return $this->renderAjax('@modern-views/rbac/rule/deletes',['del_form'=>$del_form]);
         }
         elseif ($request->isModal){
             $del_form = new RbacForm();
@@ -79,7 +79,7 @@ class RbacController extends ModernController
                 $del_form->delRules();
                  Animation::modalSwalWithPjax('pjax','success');
             }
-            return $this->renderMyAjax('@modern-views/rbac/rule/deletes',['del_form'=>$del_form]);
+            return $this->renderAjax('@modern-views/rbac/rule/deletes',['del_form'=>$del_form]);
         }
 
         $dataProvider = new ModernActiveDataProvider(['query'=>$query,'pagination'=>false],false);
