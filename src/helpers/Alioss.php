@@ -26,11 +26,23 @@ class Alioss
         return UploadedFile::getInstance($model, $attribute);
     }
 
+    public function getInstances($model, $attribute)
+    {
+        return UploadedFile::getInstances($model, $attribute);
+    }
+
     public function getInstanceByName($name)
     {
         return UploadedFile::getInstanceByName($name);
     }
+    
 
+    //批量
+    //______________________________________________________________________
+    public function getInstancesByName($name)
+    {
+        return UploadedFile::getInstancesByName($name);
+    }
     public  function initForOSS($file_object)
     {
         $security = Yii::$app->getSecurity();
