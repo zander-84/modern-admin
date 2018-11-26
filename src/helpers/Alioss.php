@@ -21,21 +21,27 @@ class Alioss
     public $readPath;
     public $prefix = '';
 
+    //单个
+    //______________________________________________________________________
     public function getInstance($model, $attribute)
     {
         return UploadedFile::getInstance($model, $attribute);
     }
 
+    //批量
+    //______________________________________________________________________
     public function getInstances($model, $attribute)
     {
         return UploadedFile::getInstances($model, $attribute);
     }
 
+    //单个
+    //______________________________________________________________________
     public function getInstanceByName($name)
     {
         return UploadedFile::getInstanceByName($name);
     }
-    
+
 
     //批量
     //______________________________________________________________________
