@@ -12,6 +12,7 @@ class ModernGridview extends GridView
     public $tableOptions = ['class' => 'table table-hover table-striped table-bordered table-responsive'];
     public $nullDisplay;
     public $formatter;
+    public $layout = "{summary}\n<p></p>{items}\n{pager}";
 
     public function init ()
     {
