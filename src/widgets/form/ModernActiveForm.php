@@ -133,15 +133,17 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
         return $this->field($model,$attribute,$fieldOptions)->checkbox($checkboxOptions)->label($label);
     }
 
-    public function fieldSwitch($model, $attribute, $width=12, $label = null, $ckLable=[], $fieldOptions = [], $checkboxOptions = [])
+    public function fieldSwitch($model, $attribute, $width=12, $label = null, $options=[], $fieldOptions = [], $checkboxOptions = [])
     {
         $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
         $checkboxOptions['class'] = 'switch';
         $checkboxOptions['id'] = 'switch_'.uniqid();
         $checkboxOptions['data-group-cls'] = 'btn-group-sm';
-        isset($ckLable['offLabel']) || $ckLable['offLabel'] = 'No';
-        isset($ckLable['onLabel']) || $ckLable['onLabel'] = 'Yes';
-        $this->view->registerJs('!function(c,e,s){"use strict";s("html");s("#'.$checkboxOptions['id'].':checkbox").checkboxpicker({offLabel:"'.$ckLable['offLabel'].'", onLabel:"'.$ckLable['onLabel'].'"})}(window,document,jQuery);');
+        isset($options['offActiveCls']) || $options['offActiveCls'] = 'btn-danger';
+        isset($options['onActiveCls']) || $options['onActiveCls'] = 'btn-success';
+        isset($options['offLabel']) || $options['offLabel'] = 'No';
+        isset($options['onLabel']) || $options['onLabel'] = 'Yes';
+        $this->view->registerJs('!function(c,e,s){"use strict";s("html");s("#'.$checkboxOptions['id'].':checkbox").checkboxpicker({offLabel:"'.$options['offLabel'].'", onLabel:"'.$options['onLabel'].'", offActiveCls:"'.$options['offActiveCls'].'", onActiveCls:"'.$options['onActiveCls'].'"})}(window,document,jQuery);');
         return $this->field($model,$attribute,$fieldOptions)->checkbox($checkboxOptions,false)->label($label);
     }
 
