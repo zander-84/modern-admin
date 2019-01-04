@@ -16,13 +16,13 @@ class ModernActiveDataProvider extends ActiveDataProvider
             $config = [];
             $config['query'] = $conf;
         }
-        if($orderby){
-            $config['query'] = $config['query']->addOrderBy([$orderby => SORT_DESC]);
-        }
-        isset($config['pagination']) || $config['pagination']['pageSize'] = 10;
 
+        isset($config['pagination']) || $config['pagination']['pageSize'] = 10;
         isset($config['sort']) || $config['sort'] = false;
 
+        if($orderby && !isset($_GET['sort'])){
+            $config['query'] = $config['query']->addOrderBy([$orderby => SORT_DESC]);
+        }
         parent::__construct($config);
     }
 

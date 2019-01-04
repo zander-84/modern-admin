@@ -74,3 +74,7 @@ select.form-control:not([size]):not([multiple]){
     height:-moz-calc(2.4rem + 0px);
     height:calc(2.4rem + 0px);
 }
+
+
+a.asc:after  { content: "↑"; }
+a.desc:after { content: "↓"; }
