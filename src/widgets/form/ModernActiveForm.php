@@ -38,6 +38,17 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
         return $this->field($model, $attribute, $fieldOptions)->textInput($textInputOptions)->label($lable, $lableOptions);
     }
 
+    public function fieldCkeditor($model, $attribute,$width=12, $ckoptions = [], $lable = null,$fieldOptions=[],$lableOptions = []){
+
+        $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
+        $ckoptions = $ckoptions? $ckoptions:['options' => ['rows' => 5],'preset' => 'full','clientOptions'=>[
+            'extraPlugins' => 'base64image',
+        ]];
+
+        return $this->field($model, $attribute,$fieldOptions)->widget(\zander84\modernadmin\widgets\ckeditor\CKEditor::class,$ckoptions )->label($lable, $lableOptions);
+
+}
+
     public function fieldHiddenInput($model, $attribute )
     {
         return $this->field($model, $attribute)->hiddenInput()->label(false);
