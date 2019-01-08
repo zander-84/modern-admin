@@ -38,7 +38,8 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
         return $this->field($model, $attribute, $fieldOptions)->textInput($textInputOptions)->label($lable, $lableOptions);
     }
 
-    public function fieldCkeditor($model, $attribute,$width=12, $ckoptions = [], $lable = null,$fieldOptions=[],$lableOptions = []){
+    public function fieldCkeditor($model, $attribute,$width=12, $ckoptions = [], $lable = null,$fieldOptions=[],$lableOptions = [])
+    {
 
         $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
         $ckoptions = $ckoptions? $ckoptions:['options' => ['rows' => 5],'preset' => 'full','clientOptions'=>[
@@ -46,8 +47,7 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
         ]];
 
         return $this->field($model, $attribute,$fieldOptions)->widget(\zander84\modernadmin\widgets\ckeditor\CKEditor::class,$ckoptions )->label($lable, $lableOptions);
-
-}
+    }
 
     public function fieldHiddenInput($model, $attribute )
     {
@@ -291,6 +291,25 @@ js;
         $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
         return $this->field($model, $attribute, $fieldOptions)->widget(ModernImageInput::className(), [
             'value' => $model->$attribute,
+            'options' => $textInputOptions,
+        ])->label($lable);
+    }
+
+    public function fieldImagesInput($model, $attribute,$width=12,$imageOptions = [], $textInputOptions=[], $lable=null, $fieldOptions = [])
+    {
+        //uploadUrl allowedFileExtensions maxFileSize maxFilesNum
+        $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
+        $defalutTextInputOptions = [
+            'multiple'=>true,
+            'class' =>'file',
+            'data-overwrite-initial' => false,
+            //'data-min-file-count' => '0',
+            'data-theme' => 'fas',
+        ];
+        $textInputOptions = array_merge($defalutTextInputOptions, $textInputOptions);
+        return $this->field($model, $attribute, $fieldOptions)->widget(ModernImagesInput::className(), [
+            'value' => $model->$attribute,
+            'imgOptions' => $imageOptions,
             'options' => $textInputOptions,
         ])->label($lable);
     }

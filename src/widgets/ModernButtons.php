@@ -131,7 +131,7 @@ class ModernButtons
         $params['data-vals']['_csrf'] = $request->csrfToken;
         $params['data-vals'][$request->action_key] = $params['data-action'];
 
-        $options = ['class'=>' btn-group ','type'=>'button','data-toggle'=>"modal",'role'=>'group','style'=>['height'=>'33px', 'width'=>'100%']];
+        $options = ['class'=>' btn-group ','data-toggle'=>"modal",'role'=>'group','style'=>['height'=>'33px', 'width'=>'100%']];
         if(isset($params['class'])){
             $options['class'] = $options['class'].$params['class'];
             unset($params['class']);
