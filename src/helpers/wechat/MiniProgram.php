@@ -88,7 +88,6 @@ class MiniProgram
         //$input->SetOpenid($openId);
 
         $UnifiedOrderResult =  WxPayApi::unifiedOrder($this->getConfig(), $input);
-
         if(!array_key_exists("appid", $UnifiedOrderResult)
             || !array_key_exists("prepay_id", $UnifiedOrderResult)
             || $UnifiedOrderResult['prepay_id'] == "")
