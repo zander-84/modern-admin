@@ -9,9 +9,11 @@
 namespace zander84\modernadmin\helpers\wechat;
 use yii\httpclient\Client;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayJsApiPay;
+use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayNotifyResults;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayUnifiedOrder;
 use zander84\modernadmin\helpers\wechat\lib\WxPayApi;
 use zander84\modernadmin\helpers\wechat\lib\WxPayException;
+use zander84\modernadmin\helpers\wechat\lib\WxPayNotify;
 
 class MiniProgram
 {
@@ -107,4 +109,13 @@ class MiniProgram
 
         return $jsapi->GetValues();
     }
+
+
+    public  function notify(\Closure $callback)
+    {
+        $notify = new WxPayNotify();
+        $notify->Handle($callback, $this->getConfig(),true);
+    }
+
+
 }

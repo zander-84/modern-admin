@@ -8,16 +8,20 @@
  */
 namespace zander84\modernadmin\helpers\wechat\lib;
 
+use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayNotifyReply;
+
 class WxPayNotify extends WxPayNotifyReply
 {
 	private $config = null;
+	public $callback ;
 	/**
 	 * 
 	 * 回调入口
 	 * @param bool $needSign  是否需要签名返回
 	 */
-	final public function Handle($config, $needSign = true)
+	final public function Handle($callback, $config, $needSign = true)
 	{
+	    $this->callback = $callback;
 		$this->config = $config;
 		$msg = "OK";
 		//当返回false的时候，表示notify中调用NotifyCallBack回调失败获取签名校验失败，此时直接回复失败
@@ -52,7 +56,8 @@ class WxPayNotify extends WxPayNotifyReply
 	public function NotifyProcess($objData, $config, &$msg)
 	{
 		//TODO 用户基础该类之后需要重写该方法，成功的时候返回true，失败返回false
-		return false;
+        return $this->callback($objData, $config, &$msg);
+		//return false;
 	}
 
 	/**
