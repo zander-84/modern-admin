@@ -8,6 +8,7 @@
 
 namespace zander84\modernadmin\helpers\wechat;
 use yii\httpclient\Client;
+use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayJsApiPay;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayUnifiedOrder;
 use zander84\modernadmin\helpers\wechat\lib\WxPayApi;
 use zander84\modernadmin\helpers\wechat\lib\WxPayException;
@@ -94,7 +95,17 @@ class MiniProgram
         {
             return false;
         }
+        $jsapi = new WxPayJsApiPay();
+        $jsapi->SetAppid($UnifiedOrderResult["appid"]);
+        $timeStamp = time();
+        $jsapi->SetTimeStamp("$timeStamp");
+        $jsapi->SetNonceStr(WxPayApi::getNonceStr());
+        $jsapi->SetPackage("prepay_id=" . $UnifiedOrderResult['prepay_id']);
 
-        return $UnifiedOrderResult;
+        $config = new WxPayConfig();
+        $jsapi->SetPaySign($jsapi->MakeSign($config));
+        //$parameters = json_encode($jsapi->GetValues());
+
+        return $jsapi->GetValues();
     }
 }
