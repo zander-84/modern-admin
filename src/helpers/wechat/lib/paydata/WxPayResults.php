@@ -6,6 +6,8 @@
  * Time: 11:24
  */
 namespace zander84\modernadmin\helpers\wechat\lib\paydata;
+use zander84\modernadmin\helpers\wechat\lib\WxPayException;
+
 /**
  *
  * 接口调用结果类

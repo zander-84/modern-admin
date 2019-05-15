@@ -4,6 +4,7 @@ namespace zander84\modernadmin\helpers\wechat\lib;
 //require_once "WxPay.Exception.php";
 //require_once "WxPay.Config.Interface.php";
 //require_once "WxPay.Data.php";
+use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayNotifyResults;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayReport;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayResults;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayUnifiedOrder;
@@ -445,7 +446,7 @@ class WxPayApi
 			$msg = $e->errorMessage();
 			return false;
 		}
-		
+
 		return call_user_func($callback, $result);
 	}
 	
