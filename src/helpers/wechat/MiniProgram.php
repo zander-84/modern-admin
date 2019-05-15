@@ -10,6 +10,7 @@ namespace zander84\modernadmin\helpers\wechat;
 use yii\httpclient\Client;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayJsApiPay;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayNotifyResults;
+use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayOrderQuery;
 use zander84\modernadmin\helpers\wechat\lib\paydata\WxPayUnifiedOrder;
 use zander84\modernadmin\helpers\wechat\lib\WxPayApi;
 use zander84\modernadmin\helpers\wechat\lib\WxPayException;
@@ -111,11 +112,38 @@ class MiniProgram
     }
 
 
+    //订单通知
+    //______________________________________________________________________
     public  function notify(\Closure $callback)
     {
         $notify = new WxPayNotify();
         $notify->Handle($callback, $this->getConfig(),true);
     }
 
+    //订单查询
+    //______________________________________________________________________
+    public function query($out_trade_no)
+    {
+        try{
+            $input = new WxPayOrderQuery();
+            $input->SetOut_trade_no($out_trade_no);
+            $data = WxPayApi::orderQuery($this->getConfig(), $input);
+
+            if(!array_key_exists("return_code", $data)
+                ||(array_key_exists("return_code", $data) && $data['return_code'] != "SUCCESS")) {
+                //TODO失败,不是支付成功的通知
+                //如果有需要可以做失败时候的一些清理处理，并且做一些监控
+                $msg = "异常异常";
+                return false;
+            }
+            if(!array_key_exists("trade_state", $data)){
+                $msg = "输入参数不正确";
+                return false;
+            }
+            return $data;
+        } catch(Exception $e) {
+            return false;
+        }
+    }
 
 }
