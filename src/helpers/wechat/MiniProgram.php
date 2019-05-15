@@ -102,8 +102,7 @@ class MiniProgram
         $jsapi->SetNonceStr(WxPayApi::getNonceStr());
         $jsapi->SetPackage("prepay_id=" . $UnifiedOrderResult['prepay_id']);
 
-        $config = new WxPayConfig();
-        $jsapi->SetPaySign($jsapi->MakeSign($config));
+        $jsapi->SetPaySign($jsapi->MakeSign($this->getConfig()));
         //$parameters = json_encode($jsapi->GetValues());
 
         return $jsapi->GetValues();
