@@ -60,7 +60,8 @@ class WxPayNotify extends WxPayNotifyReply
 	{
         file_put_contents(\Yii::$app->getRuntimePath() . '/logs/wechatminiprogram.log','aaa',FILE_APPEND);
 		//TODO 用户基础该类之后需要重写该方法，成功的时候返回true，失败返回false
-        return $this->callback($objData, $config, $msg);
+        $c = $this->callback;
+        return $c($objData, $config, $msg);
 		//return false;
 	}
 
