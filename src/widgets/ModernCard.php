@@ -34,13 +34,13 @@ class ModernCard
     public static function beginCard ( $card_config=[] )
     {
         $card_config = self::cardDefaultOptions($card_config);
-        
+
         $card_html = ModernLayout::beginTag([
             ['div',['class'=>HtmlHelper::column($card_config['col'])]],
             ['div',['class'=>$card_config['cardClass']]],
         ]);
 
-            if($card_config['cardHeader']['enable']){
+            if(isset($card_config['cardHeader']['enable']) && $card_config['cardHeader']['enable']){
                 $card_html .= ModernLayout::beginTag([['div',['class'=>'card-header']]]);
 
                     if($card_config['cardHeader']['title']){
@@ -98,14 +98,14 @@ class ModernCard
         isset($card_config['cardClass']) || $card_config['cardClass'] = '';
         $card_config['cardClass'] ='card '.$card_config['cardClass'];
 
-        isset($card_config['cardHeader']['enable']) || $card_config['cardHeader']['enable'] = true;
+        isset($card_config['cardHeader']['enable']) || $card_config['cardHeader']['enable'] = false;
         isset($card_config['cardHeader']['title']) || $card_config['cardHeader']['title'] = 'Info';
         isset($card_config['cardHeader']['actions']['collapse']) || $card_config['cardHeader']['actions']['collapse'] = true;
         isset($card_config['cardHeader']['actions']['reload']) || $card_config['cardHeader']['actions']['reload'] = true;
         isset($card_config['cardHeader']['actions']['expand']) || $card_config['cardHeader']['actions']['expand'] = true;
 
         isset($card_config['cardText']) || $card_config['cardText'] = false;
-        
+
         return $card_config;
     }
 

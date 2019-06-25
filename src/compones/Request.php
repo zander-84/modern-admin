@@ -9,6 +9,11 @@
 namespace zander84\modernadmin\compones;
 use Yii;
 
+/**
+ * @inheritdoc
+ *
+ * @property \yii\web\Request $Request .
+ */
 class Request extends \yii\web\Request
 {
     public $action_key = '_action';

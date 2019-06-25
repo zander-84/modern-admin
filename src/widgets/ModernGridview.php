@@ -9,10 +9,11 @@ use Yii;
 class ModernGridview extends GridView
 {
     public $min_width = '100px';
-    public $tableOptions = ['class' => 'table table-hover table-striped table-bordered table-responsive'];
+    public $tableOptions = ['class' => 'table table-hover table-striped table-bordered '];
     public $nullDisplay;
     public $formatter;
-    public $layout = "{summary}\n<p></p>{items}\n{pager}";
+    public $layout = "{summary}\n<p></p><div style=\"overflow-x: auto;\">{items}</div>\n{pager}";
+
 
     public function init ()
     {
@@ -30,9 +31,9 @@ class ModernGridview extends GridView
                 'disabledListItemSubTagOptions'=>['tag' => 'a', 'class' => 'page-link'],
 
                 'options' => ['class' => 'pagination pagination-flat '],
-
             ];
         }
+
     }
 
     public static function widget($config = [])

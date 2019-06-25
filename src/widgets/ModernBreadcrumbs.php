@@ -14,7 +14,7 @@ class ModernBreadcrumbs extends Widget
     public function run ()
     {
         $html = '<div class="content-header row">';
-        $html .=    '<div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">';
+        $html .=    '<div class="content-header-left col-md-6 col-12 mb-1 breadcrumb-new">';
         $html .=        '<h3 class="content-header-title mb-0 d-inline-block">'.$this->currentPage.'</h3>';
         $html .=            '<div class="row breadcrumbs-top d-inline-block">';
         $html .=                '<div class="breadcrumb-wrapper col-12">';

@@ -13,7 +13,7 @@ class ModernButtons
     public static function edit($params= [] , $highlight=true)
     {
 
-        $active = false;
+        $active = '';
         $request = Yii::$app->request;
         $url = $request->getUrl();
 
@@ -22,7 +22,7 @@ class ModernButtons
                 if(isset($_POST[$k])) {
                     if ($v == $_POST[$k]) {
                         $active = ' field-active ';
-                        Yii::$app->view->registerJs('$(document).ready(function (){ $(".field-active").parent().parent().parent().parent().parent().attr("class","border-warning border-3"); })');
+                        Yii::$app->view->registerJs('$(document).ready(function (){ $(".field-active").parent().parent().parent().parent().parent().attr("class","border-'.Yii::$app->params['modern_dashboard']['theme_color'].' border-3"); })');
                     }
                 }
             }
@@ -41,8 +41,20 @@ class ModernButtons
         $html .=  ModernLayout::endTag(['div']);
         return $html;
     }
-    
-    
+
+    public static function aEdit($url )
+    {
+        $html = ModernLayout::beginTag([['div']]);
+        $html .= Html::a(
+            ModernLayout::beginTag([['i',['class'=>'ft-edit ', 'style'=>['cursor'=>'pointer','font-size'=>'1.3rem']]]]).ModernLayout::endTag(['i']),
+            $url,
+            ['data-pjax'=>0]
+        );
+        $html .=  ModernLayout::endTag(['div']);
+        return $html;
+    }
+
+
     public static function delete($params= [])
     {
         $request = Yii::$app->request;
@@ -91,6 +103,7 @@ class ModernButtons
 
     public static function checkModalButton($params,$model, $val = 'Delete', $col=3,  $color = 'btn-primary')
     {
+        //$color = 'btn-'.Yii::$app->params['modern_dashboard']['theme_color'];
         $request = Yii::$app->request;
         $model['data-vals']['_csrf'] = $request->csrfToken;
         $model['data-vals'][$request->action_key] = $model['data-action'];

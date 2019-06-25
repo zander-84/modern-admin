@@ -31,6 +31,12 @@ class ModernActiveForm extends  \yii\widgets\ActiveForm
         return $this->field($model, $attribute, $fieldOptions)->prependInput($textInputOptions,$lable)->label(false);
     }
 
+    public function fieldRightAddon($model, $attribute,$width=12,$addon='',$lable = null, $fieldOptions = [], $textInputOptions = [])
+    {
+        $fieldOptions = $this->defaultFieldOptions($fieldOptions, HtmlHelper::column($width));
+        return $this->field($model, $attribute, $fieldOptions)->rightAddonInput($textInputOptions,$addon)->label($lable);
+    }
+
 
     public function fieldTextInput($model, $attribute,$width=12, $lable = null, $fieldOptions = [], $textInputOptions = [],$lableOptions = [] )
     {
@@ -323,7 +329,7 @@ js;
     {
         return ModernLayout::endTag(['div']);
     }
-    
+
     public function section($icon, $label = '')
     {
         $html = '';
@@ -358,7 +364,7 @@ js;
         }
         if($btns['submit']){
             $html .= ModernLayout::beginTag([
-                ['button',['class'=>'btn btn-primary mr-1 box-shadow-1','type'=>"submit"]],
+                ['button',['class'=>'btn btn-'.Yii::$app->params['modern_dashboard']['theme_color'].' mr-1 box-shadow-1','type'=>"submit"]],
             ]);
             $html .= ModernLayout::beginTag([
                 ['i',['class'=>'la la-check-square-o']],
@@ -379,7 +385,7 @@ js;
         $html .= ModernCard::beginColumn($col,'cust_field');
         $html .= ModernLayout::beginTag([['div',['class'=>'btn-group', 'role'=>'group','style'=>['height'=>'33px', 'width'=>'100%']]]]);
         $html .= ModernLayout::beginTag([
-            ['button',['class'=>'btn btn-success  ','type'=>"submit",'style'=>[ 'width'=>'100%','padding-top'=>'7px']]],
+            ['button',['class'=>'btn btn-'.Yii::$app->params['modern_dashboard']['theme_color'].'  ','type'=>"submit",'style'=>[ 'width'=>'100%','padding-top'=>'7px']]],
         ]);
         //$html .= ModernLayout::beginTag([
         //    ['i',['class'=>'la la-search','style'=>['margin-right'=>'5px']]],

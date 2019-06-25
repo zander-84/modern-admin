@@ -78,3 +78,7 @@ select.form-control:not([size]):not([multiple]){
 
 a.asc:after  { content: "↑"; }
 a.desc:after { content: "↓"; }
+
+.table td, .table th{
+    padding: .75rem !important;
+}

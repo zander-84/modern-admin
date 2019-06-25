@@ -15,7 +15,7 @@ class ModernModal extends Widget
     {
 
 
-        $modalHtml = '<div class="modal fade " id="'.$this->id.'" role="dialog" >';
+        $modalHtml = '<div class="modal fade " id="'.$this->id.'" role="dialog" data-backdrop="false">';
         $modalHtml .=   '<div  style="display:none;" class="modal-dialog '.$this->size.' ">';
         $modalHtml .=       '<div class="modal-content" >';
         $modalHtml .=           '<div class="color-line"></div>';

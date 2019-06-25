@@ -42,6 +42,10 @@ class ModernInit implements BootstrapInterface{
         isset(Yii::$app->params['modern_dashboard']['icheck']['radio']) || Yii::$app->params['modern_dashboard']['icheck']['radio'] = 'purple';
 
 
+        isset(Yii::$app->params['modern_dashboard']['theme_color']) || Yii::$app->params['modern_dashboard']['theme_color'] = 'warning';
+        isset(Yii::$app->params['modern_dashboard']['theme_color_size']) || Yii::$app->params['modern_dashboard']['theme_color_size'] = '#FF9149';
+
+
 
 
         $defaults = [
@@ -58,7 +62,7 @@ class ModernInit implements BootstrapInterface{
 
             //____ navbar-semi-dark  navbar-light  如果是深色  bg-lighten无效
             'nav_dark_light' => 'navbar-semi-dark',
-            
+
             //____ bg-lighten-[number]
             'nav_lighten' => 'bg-lighten-4',
 

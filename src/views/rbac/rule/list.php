@@ -5,7 +5,7 @@ use \zander84\modernadmin\widgets\form\ModernActiveForm;
 <?=ModernCard::beginRow() ?>
 <?=ModernCard::beginCard([
     'col' => 12,
-    'cardClass'=> 'border-top-pink border-top-3  box-shadow-0',
+    'cardClass'=> 'border-top-'.Yii::$app->params['modern_dashboard']['theme_color'].' border-top-2  box-shadow-0',
     'cardHeader'=>[
         'enable' => false,
     ],
@@ -56,7 +56,7 @@ $this->registerJs($js);
 
 <?=ModernCard::beginCard([
     'col' => 12,
-    'cardClass'=> 'border-bottom-primary border-bottom-3 box-shadow-0',
+    'cardClass'=> 'border-bottom-'.Yii::$app->params['modern_dashboard']['theme_color'].' border-bottom-2 box-shadow-0',
     'cardHeader'=>[
         'enable' => true,
         'title' => '权限列表',

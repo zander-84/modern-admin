@@ -102,11 +102,28 @@ class ModernActiveFormField extends  ActiveField
             $this->addErrorClassIfNeeded($options);
         }
         $lable = $lable? $lable: $this->model->getAttributeLabel($this->attribute);
-        
+
         $this->addAriaAttributes($options);
         $this->adjustLabelFor($options);
         $this->parts['{input}'] = '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" >'.$lable.'</span></div>'.
             Html::activeTextInput($this->model, $this->attribute, $options).'</div>';
+
+        return $this;
+    }
+
+    public function rightAddonInput($options, $lable)
+    {
+        $options = array_merge($this->inputOptions, $options);
+
+        if ($this->form->validationStateOn === ModernActiveForm::VALIDATION_STATE_ON_INPUT) {
+            $this->addErrorClassIfNeeded($options);
+        }
+        $lable = $lable? $lable: $this->model->getAttributeLabel($this->attribute);
+
+        $this->addAriaAttributes($options);
+        $this->adjustLabelFor($options);
+        $this->parts['{input}'] = '<div class="input-group">'.
+            Html::activeTextInput($this->model, $this->attribute, $options).'<div class="input-group-append"><span class="input-group-text" >'.$lable.'</span></div></div>';
 
         return $this;
     }

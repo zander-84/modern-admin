@@ -8,7 +8,7 @@ use \app\models\web\models\Admin;
 <?=ModernCard::beginRow() ?>
 <?=ModernCard::beginCard([
     'col' => 12,
-    'cardClass'=> 'border-top-pink border-top-3 border-bottom-blue border-bottom-3 box-shadow-0 samllform',
+    'cardClass'=> 'border-top-'.Yii::$app->params['modern_dashboard']['theme_color'].' border-top-2 border-bottom-'.Yii::$app->params['modern_dashboard']['theme_color'].' border-bottom-2 box-shadow-0 samllform',
     'cardHeader'=>[
         'enable' => true,
         'title' => 'AuthRule',
