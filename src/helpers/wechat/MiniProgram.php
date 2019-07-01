@@ -25,6 +25,7 @@ class MiniProgram
     public $secret;
     public $mchId;
     public $key;
+    public $infomation;
 
     /**
      * @var WxPayConfig|null
