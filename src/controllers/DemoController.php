@@ -20,7 +20,7 @@ class DemoController extends ModernController
 
         $this->layout = '@modern-layouts/demo';
         $request = Yii::$app->request;
-
+ 
         $form = new DemoForm();
         $search = new DemoSearchForm();
         $search->load($request->get());
