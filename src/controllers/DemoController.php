@@ -20,7 +20,7 @@ class DemoController extends ModernController
 
         $this->layout = '@modern-layouts/demo';
         $request = Yii::$app->request;
- 
+
         $form = new DemoForm();
         $search = new DemoSearchForm();
         $search->load($request->get());
@@ -37,7 +37,7 @@ class DemoController extends ModernController
             if($form->validload($request->post())){
                 $this->setflash($form->doTransaction('saveDemo'));
 
-                //____ 初始化form 跟 search
+                //____ 初始化form 跟    search
                 $form = new DemoForm();
                 $search = new DemoSearchForm();
                 $query = $search->query();
