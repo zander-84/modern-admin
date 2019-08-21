@@ -27,7 +27,7 @@ class DemoController extends ModernController
         $query = $search->query();
 
         if ($request->isFind){
-            //____ 查找
+            //____ 查 找
             $form->findOne(['id'=>$request->post('id')]);
             //____ 设置更新行为
             $request->setActionUpdate();
